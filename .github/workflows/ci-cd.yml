@@ -24,15 +24,15 @@ jobs:
           tags: test-web-app:latest
           push: false
 
-      - name: Copy files to the deployment machine
-        uses: appleboy/scp-action@v0.1.2
-        with:
-          host: '172.18.233.132'
-          username: 'krishna'
-          password: 'Krishna@123'
-          port: 2222
-          source: "."
-          target: "~/test-web-app/"
+      # - name: Copy files to the deployment machine
+      #   uses: appleboy/scp-action@v0.1.2
+      #   with:
+      #     host: '172.18.233.132'
+      #     username: 'krishna'
+      #     password: 'Krishna@123'
+      #     port: 2222
+      #     source: "."
+      #     target: "~/test-web-app/"
 
       - name: Install Ansible
         run: |
