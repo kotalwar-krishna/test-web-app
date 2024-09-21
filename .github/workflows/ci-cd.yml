@@ -27,7 +27,7 @@ jobs:
       - name: Copy files to the deployment machine
         uses: appleboy/scp-action@v0.1.2
         with:
-          host: ' tcp://0.tcp.in.ngrok.io:16516'
+          host: '0.tcp.in.ngrok.io'
           username: 'krishna'
           password: 'Krishna@123'
           port: 2222
