@@ -3,6 +3,9 @@
   hosts: webserver
   become: true
   tasks:
+    - name: Gather facts
+      setup:
+      
     - name: Pull latest Docker image
       community.docker.docker_image:
         name: test-web-app
