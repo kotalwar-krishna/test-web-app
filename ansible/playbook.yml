@@ -1,11 +1,17 @@
 ---
 - name: Deploy test web application
-  hosts: webserver
+  hosts: all
   become: true
+  gather_facts: yes
+  vars:
+    ansible_ssh_user: krishna
+    ansible_ssh_password: Krishna@123
+    ansible_port: 16516
+
   tasks:
     - name: Gather facts
       setup:
-      
+
     - name: Pull latest Docker image
       community.docker.docker_image:
         name: test-web-app
