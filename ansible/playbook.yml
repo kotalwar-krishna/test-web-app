@@ -1,0 +1,23 @@
+---
+- name: Deploy test web application
+  hosts: webserver
+  become: true
+  tasks:
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: test-web-app
+        tag: latest
+        source: pull
+
+    - name: Stop existing container if running
+      community.docker.docker_container:
+        name: test-web-app
+        state: absent
+
+    - name: Start the Docker container
+      community.docker.docker_container:
+        name: test-web-app
+        image: test-web-app:latest
+        ports:
+          - "80:80"
+        state: started
