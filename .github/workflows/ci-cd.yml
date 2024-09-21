@@ -28,8 +28,8 @@ jobs:
         uses: appleboy/scp-action@v0.1.2
         with:
           host: '127.0.0.1'
-          username: '<your_username>'
-          password: '<your_password>'
+          username: 'krishna'
+          password: 'Krishna@123'
           port: 2222
           source: "."
           target: "~/test-web-app/"
