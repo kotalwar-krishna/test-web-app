@@ -27,10 +27,10 @@ jobs:
       - name: Copy files to the deployment machine
         uses: appleboy/scp-action@v0.1.2
         with:
-          host: '0.tcp.in.ngrok.io'
+          host: '172.18.233.132'
           username: 'krishna'
           password: 'Krishna@123'
-          port: 16516
+          port: 22
           source: "."
           target: "~/test-web-app/"
 
@@ -42,4 +42,4 @@ jobs:
       - name: Run Ansible playbook
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
-        run: ansible-playbook -i 0.tcp.in.ngrok.io ansible/playbook.yml
+        run: ansible-playbook -i 172.18.233.132 ansible/playbook.yml
