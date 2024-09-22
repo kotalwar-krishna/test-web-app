@@ -40,4 +40,4 @@ jobs:
           sudo apt-get install -y ansible
 
       - name: Run Ansible playbook
-        run: ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
+        run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
