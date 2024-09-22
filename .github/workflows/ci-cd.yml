@@ -42,7 +42,7 @@
 #       - name: Run Ansible playbook
 #         run: ansible-playbook -i hosts.ini ansible/playbook.yml
 
-name: Create File in WSL
+name: Create File on Local Windows System
 
 on:
   push:
@@ -57,6 +57,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create a file in WSL
+      - name: Create a file on local Windows system
         run: |
-          wsl bash -c 'echo "This is a new file created by GitHub Actions" > /home/your-username/new-file.txt'
+          New-Item -Path 'C:\path\to\your\directory\new-file.txt' -ItemType File -Value "This is a new file created by GitHub Actions"
