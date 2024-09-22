@@ -32,7 +32,7 @@ jobs:
           password: 'Krishna@123'
           port: 11782
           source: "."
-          target: "~/"
+          target: "~/test-web-app/"
 
       - name: Install Ansible
         run: |
@@ -40,4 +40,4 @@ jobs:
           sudo apt-get install -y ansible
 
       - name: Run Ansible playbook
-        run: ansible-playbook -i hosts.ini ansible/playbook.yml
+        run: ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
