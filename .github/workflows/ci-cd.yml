@@ -59,4 +59,4 @@ jobs:
 
       - name: Create a file on local Windows system
         run: |
-          New-Item -Path 'C:\path\to\your\directory\new-file.txt' -ItemType File -Value "This is a new file created by GitHub Actions"
+          New-Item -Path 'C:\Users\RUSHIKESH\Krishna-work\new-file.txt' -ItemType File -Value "This is a new file created by GitHub Actions"
