@@ -1,4 +1,48 @@
-name: CI/CD Pipeline
+# name: CI/CD Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v2
+
+#       - name: Build Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           file: ./Dockerfile
+#           tags: test-web-app:latest
+#           push: false
+
+#       - name: Copy files to the deployment machine
+#         uses: appleboy/scp-action@v0.1.2
+#         with:
+#           host: '0.tcp.in.ngrok.io'
+#           username: 'krishna'
+#           password: 'Krishna@123'
+#           port: 11782
+#           source: "."
+#           target: "~/test-web-app/"
+
+#       - name: Install Ansible
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y ansible
+
+#       - name: Run Ansible playbook
+#         run: ansible-playbook -i hosts.ini ansible/playbook.yml
+
+name: Create File in WSL
 
 on:
   push:
@@ -6,38 +50,13 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  create_file:
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          tags: test-web-app:latest
-          push: false
-
-      - name: Copy files to the deployment machine
-        uses: appleboy/scp-action@v0.1.2
-        with:
-          host: '0.tcp.in.ngrok.io'
-          username: 'krishna'
-          password: 'Krishna@123'
-          port: 11782
-          source: "."
-          target: "~/test-web-app/"
-
-      - name: Install Ansible
+      - name: Create a file in WSL
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ansible
-
-      - name: Run Ansible playbook
-        run: ansible-playbook -i hosts.ini ansible/playbook.yml
+          wsl bash -c 'echo "This is a new file created by GitHub Actions" > /home/your-username/new-file.txt'
