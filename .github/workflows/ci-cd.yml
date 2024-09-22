@@ -42,4 +42,4 @@ jobs:
       - name: Run Ansible playbook
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
-        run: ansible-playbook -i 172.18.233.132 ansible/playbook.yml
+        run: ansible-playbook -i hosts.ini ansible/playbook.yml

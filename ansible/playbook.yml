@@ -1,6 +1,6 @@
 ---
 - name: Deploy test web application
-  hosts: all
+  hosts: webserver
   become: true
   gather_facts: yes
   vars:
