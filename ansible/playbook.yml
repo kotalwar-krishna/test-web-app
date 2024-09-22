@@ -14,19 +14,19 @@
 
     - name: Pull latest Docker image
       community.docker.docker_image:
-        name: test-web-app
+        name: simple-web-app
         tag: latest
         source: pull
 
     - name: Stop existing container if running
       community.docker.docker_container:
-        name: test-web-app
+        name: simple-web-app
         state: absent
 
     - name: Start the Docker container
       community.docker.docker_container:
-        name: test-web-app
-        image: test-web-app:latest
+        name: simple-web-app
+        image: simple-web-app:latest
         ports:
           - "80:80"
         state: started
